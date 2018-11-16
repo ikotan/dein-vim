@@ -1,0 +1,133 @@
+# プラグイン一覧
+[[plugins]] # プラグイン管理
+repo = 'Shougo/dein.vim'
+
+# -----------------------------------------
+# コーディングツール
+# -----------------------------------------
+[[plugins]] # コメントアウト
+repo = 'scrooloose/nerdcommenter.git'
+hook_add = '''
+  " コメントの間にスペースを入る
+  let g:NERDSpaceDelims = 1
+  " 未対応ファイルタイプの場合、エラーメッセージを表示しない
+  let g:NERDShutUp = 1
+'''
+
+[[plugins]] # 複数置換
+repo = 'osyo-manga/vim-over'
+hook_add = '''
+  " 全体置換
+  nnoremap <silent> <Space>o :OverCommandLine<CR>%s//g<Left><Left>
+  " 選択範囲置換
+  vnoremap <silent> <Space>o :OverCommandLine<CR>s//g<Left><Left>
+  " カーソルしたの単語を置換
+  nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+'''
+
+[[plugins]] # 非同期実行
+repo = 'Shougo/vimproc'
+build = 'make'
+
+[[plugins]] # テキストを括弧で囲む／削除する
+repo = 'tpope/vim-surround'
+hook_add = '''
+  " sコマンドでsurroundをマッピング
+  nmap s <Plug>Ysurround
+  " ssコマンドでssurroundをマッピング
+  nmap ss <Plug>Yssurround
+'''
+
+# -----------------------------------------
+# 表示
+# -----------------------------------------
+[[plugins]] # 複数ハイライト
+repo = 't9md/vim-quickhl'
+hook_add = '''
+  nmap <Space>m <Plug>(quickhl-manual-this)
+  xmap <Space>m <Plug>(quickhl-manual-this)
+  nmap <Space>n <Plug>(quickhl-manual-reset)
+  xmap <Space>n <Plug>(quickhl-manual-reset)
+'''
+
+[[plugins]] # インデント表示
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+  nnoremap <silent> <space>l :<C-u>IndentLinesToggle<Enter>
+  " tabに対してもインデントを有効化する
+  set list listchars=tab:\¦\
+  " インデントを除外したい場合
+  let g:indentLine_fileTypeExclude = ['help','nerdtree']
+'''
+
+[[plugins]] # ステータスバーをカスタマイズ
+repo = 'itchyny/lightline.vim'
+
+[[plugins]] # サイドタグバー
+repo = 'majutsushi/tagbar'
+# hook_add = '''
+  # nmap <silent> tt :TagbarToggle<Enter>
+  # autocmd VimEnter * nested :call tagbar#autoopen(1)
+  # " ウィンドウのサイズ調整
+  # let g:tagbar_width = 30
+# '''
+
+# -----------------------------------------
+# 構文解析
+# -----------------------------------------
+[[plugins]] # 非同期構文解析
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_sign_column_always = 1
+  let g:ale_open_list = 1
+  let b:ale_fixers = {
+    \ 'javascript': ['prettier', 'eslint']
+    \ }
+'''
+
+# [[plugins]] # ちょっと古い
+# repo = 'scrooloose/syntastic'
+
+# -----------------------------------------
+# 言語対応
+# -----------------------------------------
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# -----------------------------------------
+# カラースキーマ
+# -----------------------------------------
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  colorscheme molokai
+'''
+
+# [[plugins]]
+# repo = 'w0ng/vim-hybrid'
+
+# -----------------------------------------
+# バージョン管理
+# -----------------------------------------
+[[plugins]] # subversion, git
+repo = 'vim-scripts/vcscommand.vim'
+hook_add = '''
+  nnoremap <silent> vd :<C-u>VCSDiff<CR>
+  nnoremap <silent> vdv :<C-u>VCSVimDiff<CR>
+  nnoremap vdl :<C-u>VCSDiff<Space>
+  nnoremap <silent> vl :<C-u>VCSLog<CR>
+  nnoremap <silent> vs :<C-u>VCSStatus<CR>
+'''
+
+[[plugins]] # git
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+  nnoremap <Space>gd :<C-u>Gdiff<Enter>
+  nnoremap <Space>gs :<C-u>Gstatus<Enter>
+  nnoremap <Space>gl :<C-u>Glog<Enter>
+  nnoremap <Space>ga :<C-u>Gwrite<Enter>
+  nnoremap <Space>gc :<C-u>Gcommit<Enter>
+  nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+  nnoremap <Space>gb :<C-u>Gblame<Enter>
+'''
