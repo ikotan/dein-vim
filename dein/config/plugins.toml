@@ -83,6 +83,7 @@ hook_add = '''
   let b:ale_fixers = {
     \ 'javascript': ['prettier', 'eslint']
     \ }
+  nnoremap <silent> <Space><C-d> :<C-u>lclose<Enter>
 '''
 
 # [[plugins]] # ちょっと古い
