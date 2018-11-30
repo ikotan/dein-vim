@@ -31,6 +31,9 @@ set ttyfast " 高速ターミナル接続を行う
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
+" jqでjsonを整形する
+nnoremap <silent> <Space>jq :%!jq '.'<Enter>
+
 "------------------------------------------------------------
 " インデント Indent
 "------------------------------------------------------------
