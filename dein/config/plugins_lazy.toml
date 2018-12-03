@@ -87,7 +87,7 @@ hook_add = '''
         \ }}
 '''
 
-[[plugins]] # コード実行
+[[plugins]] # コード整形
 repo = 'alpaca-tc/beautify.vim'
 hook_add = '''
   let g:beautify#beautifier#npm_beautifier#bin = {
@@ -167,3 +167,6 @@ hook_add = '''
 repo = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript']

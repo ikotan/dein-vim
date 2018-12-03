@@ -65,12 +65,12 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]] # サイドタグバー
 repo = 'majutsushi/tagbar'
-# hook_add = '''
-  # nmap <silent> tt :TagbarToggle<Enter>
-  # autocmd VimEnter * nested :call tagbar#autoopen(1)
-  # " ウィンドウのサイズ調整
-  # let g:tagbar_width = 30
-# '''
+hook_add = '''
+  nmap <silent> tt :TagbarToggle<Enter>
+  autocmd VimEnter * nested :call tagbar#autoopen(1)
+  " ウィンドウのサイズ調整
+  let g:tagbar_width = 30
+'''
 
 # -----------------------------------------
 # 構文解析
@@ -95,6 +95,9 @@ hook_add = '''
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
 
 # -----------------------------------------
 # カラースキーマ
