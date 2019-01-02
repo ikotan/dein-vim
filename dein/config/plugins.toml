@@ -60,8 +60,19 @@ hook_add = '''
   let g:indentLine_fileTypeExclude = ['help','nerdtree']
 '''
 
+# [[plugins]] # ステータスバーをカスタマイズ
+# repo = 'itchyny/lightline.vim'
+
 [[plugins]] # ステータスバーをカスタマイズ
-repo = 'itchyny/lightline.vim'
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+  let g:airline_powerline_fonts = 1
+  set laststatus=2
+  let g:airline_theme = 'violet'
+'''
+
+[[plugins]] # ステータスバーをカスタマイズ
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]] # サイドタグバー
 repo = 'majutsushi/tagbar'
@@ -83,6 +94,8 @@ hook_add = '''
   let b:ale_fixers = {
     \ 'javascript': ['prettier', 'eslint']
     \ }
+  highlight link ALEErrorSign Tag
+  highlight link ALEWarningSign StorageClass
   nnoremap <silent> <Space><C-d> :<C-u>lclose<Enter>
 '''
 
