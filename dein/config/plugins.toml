@@ -148,3 +148,9 @@ hook_add = '''
   nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
   nnoremap <Space>gb :<C-u>Gblame<Enter>
 '''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  nnoremap <Space>gh :<C-u>GitGutterLineHighlightsToggle<Enter>
+'''
